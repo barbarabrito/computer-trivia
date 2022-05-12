@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400&display=swap');
+
+body{
+
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+header{
+    color: #BEF992;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 4em;
+    padding: 2em;
+}
+
+.trivia-container{
+
+    text-align: center;
+}
+
+#score{
+
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.card-container{
+    margin: 0 auto;
+    border: 1px solid #004d00;
+    border-radius: 2px;
+    padding: 2em;
+    max-width: 500px;
+    margin-bottom: 5em;
+}
+
+
+.choices button{
+
+    background-color: transparent;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    border: 1px solid #BEF992;
+    border-radius: 5px;
+    padding: 0.8em;
+    color: #fff;
+    cursor: pointer;
+    width: 200px;
+
+}
+
+.choices button:hover{
+
+    background-color: #1a1a1a;
+}
