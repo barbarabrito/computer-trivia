@@ -4,7 +4,7 @@ var score = document.getElementById('score');
 
 var points = 0;
 
-//fetch open trivia DB API
+//fetch Open Trivia DB API
 fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=multiple`)
 .then(response => response.json())
 .then(data => {
@@ -66,24 +66,19 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     //empty array to add random numbers
     var randomNumbers = [];
 
-    //generate 15 random numbers to swap order of right answers
-    //There must exist much better ways to do this but i couldn't think of anything, sorry
+    //generate 15 random numbers to swap the order of right answers
     randomNumbers.push(Math.floor( Math.random() * 4 ));  
-    randomNumbers.push(Math.floor(Math.random() * (8 - 4) ) + 4);   
-    randomNumbers.push(Math.floor(Math.random() * (12 - 8) ) + 8);
-    randomNumbers.push(Math.floor(Math.random() * (16 - 12) ) + 12);
-    randomNumbers.push(Math.floor(Math.random() * (20 - 16) ) + 16);
-    randomNumbers.push(Math.floor(Math.random() * (24 - 20) ) + 20);
-    randomNumbers.push(Math.floor(Math.random() * (28 - 24) ) + 24);
-    randomNumbers.push(Math.floor(Math.random() * (32 - 28) ) + 28);
-    randomNumbers.push(Math.floor(Math.random() * (36 - 32) ) + 32);
-    randomNumbers.push(Math.floor(Math.random() * (40 - 36) ) + 36);
-    randomNumbers.push(Math.floor(Math.random() * (44 - 40) ) + 40);
-    randomNumbers.push(Math.floor(Math.random() * (48 - 44) ) + 44);
-    randomNumbers.push(Math.floor(Math.random() * (52 - 48) ) + 48);
-    randomNumbers.push(Math.floor(Math.random() * (56 - 52) ) + 52);
-    randomNumbers.push(Math.floor(Math.random() * (60 - 56) ) + 56);
 
+    for (yy = 4; yy < 59; yy = yy + 4){
+
+        let t = 4;
+        t = t + yy;
+
+        randomNumbers.push(Math.floor(Math.random() * (t - yy) ) + yy);  
+    }
+
+    console.log(randomNumbers)
+    
     var options = incorrectArray;
 
     for(u = 0; u < randomNumbers.length; u++){
