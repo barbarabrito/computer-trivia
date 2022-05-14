@@ -6,7 +6,6 @@ var points = 0;
 
 var optionsArray = [];
 
-var idx = 'sd';
 
 //fetch Open Trivia DB API
 fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=multiple`)
@@ -104,22 +103,10 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     }
 
     createElements(data, options);
-
-
-    // for (z = 0; z < data.results.length; z++){
-        // console.log(data.results[0].correct_answer);
-    // }
-
 })
 
 
-// const match = optionsArray.find(element => {
-//     if (element.includes('Amazon')){
-//         return true;
-//     }
-// });
 
-// console.log(optionsArray)
 
 
 
