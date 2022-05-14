@@ -55,3 +55,8 @@ header{
 
     background-color: #1a1a1a;
 }
+
+.right-answer{
+    background-color: green;
+    color: #000;
+}

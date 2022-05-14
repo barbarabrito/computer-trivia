@@ -1,6 +1,6 @@
 const trivia = document.getElementById('trivia');
 
-var score = document.getElementById('score');
+var totalScore = document.getElementById('score');
 
 var points = 0;
 
@@ -38,6 +38,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             b = b + a;
             optionsArray.push(options.slice(a, b));          
         }   
+        
         for (y = 0; y < data.results.length; y++){
 
             let card = document.createElement('div');
@@ -45,7 +46,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
             card.innerHTML = data.results[y].question;
 
-            let dOptions = document.createElement('div')
+            var dOptions = document.createElement('div')
             dOptions.classList.add('choices');
 
             trivia.append(card);                     
@@ -63,21 +64,28 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
                 dBtn.append(btnOp);
                 dOptions.append(dBtn); 
             }
+            alert = document.createElement('p');
+            dOptions.append(alert);
+            alert.id = y;
+            // console.log(idxp);
         }     
-        // console.log(idx);
+
     }
 
     function result(idx){
 
         idx = this.getAttribute('index');
-        // console.log(idx);
-        if(this.getAttribute('answer') === data.results[idx].correct_answer){
-            console.log('resposta correta!');
+        console.log(idx);
+        let alertElement = document.getElementById(idx);
+
+        if(this.getAttribute('answer') === data.results[idx].correct_answer){  
+            alertElement.innerHTML = 'Resposta correta!';
+            points = points + 100;
+            totalScore.innerHTML = points;
         }else{
-            console.log('resposta errada');
+            alertElement.innerHTML = 'Resposta errada :(';
         }
     }
-
 
     //empty array to add random numbers
     var randomNumbers = [];
@@ -104,9 +112,3 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
     createElements(data, options);
 })
-
-
-
-
-
-
