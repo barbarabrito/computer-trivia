@@ -4,6 +4,10 @@ var score = document.getElementById('score');
 
 var points = 0;
 
+var optionsArray = [];
+
+var idx = 'sd';
+
 //fetch Open Trivia DB API
 fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=multiple`)
 .then(response => response.json())
@@ -27,7 +31,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     function createElements(data, options){
 
         var btnOp = [];
-        var optionsArray = [];
+        
 
         //add chunks from options into a new array optionsArray
         for (a = 0; a < 60; a = a + 4){
@@ -35,7 +39,6 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             b = b + a;
             optionsArray.push(options.slice(a, b));          
         }   
-
         for (y = 0; y < data.results.length; y++){
 
             let card = document.createElement('div');
@@ -49,19 +52,33 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             trivia.append(card);                     
             card.append(dOptions); 
 
-            for(xx = 0; xx < 4; xx++){
+            for(x = 0; x < 4; x++){
 
                 dBtn = document.createElement('div');
                 btnOp = document.createElement('button');
                 btnOp.style.margin = '2em 0.2em 1em 0.2em';
-                btnOp.innerHTML = optionsArray[y][xx];    
+                btnOp.innerHTML = optionsArray[y][x]; 
+                btnOp.setAttribute('answer', optionsArray[y][x]);
+                btnOp.setAttribute('index', y);
+                btnOp.addEventListener('click', result);
                 dBtn.append(btnOp);
                 dOptions.append(dBtn); 
             }
         }     
-
-        console.log(optionsArray)
+        // console.log(idx);
     }
+
+    function result(idx){
+
+        idx = this.getAttribute('index');
+        // console.log(idx);
+        if(this.getAttribute('answer') === data.results[idx].correct_answer){
+            console.log('resposta correta!');
+        }else{
+            console.log('resposta errada');
+        }
+    }
+
 
     //empty array to add random numbers
     var randomNumbers = [];
@@ -77,7 +94,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
         randomNumbers.push(Math.floor(Math.random() * (t - yy) ) + yy);  
     }
 
-    console.log(randomNumbers)
+    // console.log(randomNumbers)
     
     var options = incorrectArray;
 
@@ -87,4 +104,22 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     }
 
     createElements(data, options);
-})  
+
+
+    // for (z = 0; z < data.results.length; z++){
+        // console.log(data.results[0].correct_answer);
+    // }
+
+})
+
+
+// const match = optionsArray.find(element => {
+//     if (element.includes('Amazon')){
+//         return true;
+//     }
+// });
+
+// console.log(optionsArray)
+
+
+
