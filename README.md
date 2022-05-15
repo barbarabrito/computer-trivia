@@ -6,4 +6,4 @@ Questions fetched from [Open Trivia DB API](https://opentdb.com)
 
 You can play here [https://barbarabrito.github.io/computer-trivia](https://barbarabrito.github.io/computer-trivia)
 
-![preview image](demo/screenshot_trivia_e.png)
+![preview image](preview/screenshot_trivia.png)
