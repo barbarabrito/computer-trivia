@@ -77,6 +77,9 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
     function result(idx, btnOp){
 
+        btnplayAgain = document.getElementById('playAgain');
+        btnplayAgain.style.display = 'initial'; 
+
         idx = this.getAttribute('index');
         let res = document.querySelectorAll('button[index="'+idx+'"]');
 
@@ -156,4 +159,8 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     }
 
     createElements(data, options);
-})
+})   
+
+function reloadGame(){
+    location.reload();
+}
