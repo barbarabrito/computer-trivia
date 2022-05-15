@@ -75,7 +75,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
     }
 
-    function result(idx, btnOp){
+    function result(idx){
 
         btnplayAgain = document.getElementById('playAgain');
         btnplayAgain.style.display = 'initial'; 
@@ -102,7 +102,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             alertElement.style.color = '#33ffcc';
             this.style.background = '#339966';
             this.style.color = '#000';
-            this.style.border = 'none';
+            this.style.border = 'transparent';
             points = points + 100;
             totalScore.innerHTML = points;
         }else{
@@ -110,12 +110,12 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             alertElement.style.color = '#ff8080';
             this.style.background = '#e6e6e6';
             this.style.color = '#000';
-            this.style.border = 'none';
+            this.style.border = 'transparent';
         }
         if(points >= 200){
             console.log('points >= 200');
             scoreAlert = document.getElementById('scoreMsg');
-            scoreAlert.innerHTML = 'Don\'nt worry, you can try again!';
+            scoreAlert.innerHTML = 'Don\'t worry, you can try again!';
             sadPepe.style.display = 'inline'; 
         }
         if(points >= 500){
