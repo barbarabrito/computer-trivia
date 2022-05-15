@@ -56,7 +56,40 @@ header{
     background-color: #1a1a1a;
 }
 
-.right-answer{
-    background-color: green;
-    color: #000;
+
+#scoreContainer{
+
+    text-align: center;
+}
+
+#pogchamp{
+
+    display: none;
+    width: 150px;
+    height: 140px;
+}
+
+#sadpepe{
+
+    display: none;
+    width: 150px;
+    height: 140px;
+}
+
+#coolpepe{
+
+    display: none;
+    width: 150px;
+    height: 140px;
+}
+
+footer{
+
+    margin-top: 6em;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: #b3c6ff;
 }
