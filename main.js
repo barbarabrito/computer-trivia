@@ -1,10 +1,10 @@
 const trivia = document.getElementById('trivia');
 
-var totalScore = document.getElementById('score');
+let totalScore = document.getElementById('score');
 
-var points = 0;
+let points = 0;
 
-var optionsArray = [];
+let optionsArray = [];
 
 
 //fetch Open Trivia DB API
@@ -12,9 +12,8 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 .then(response => response.json())
 .then(data => {
 
-    // var answersArray = [];
-    var correctArray = [];
-    var incorrectArray = [];
+    let correctArray = [];
+    let incorrectArray = [];
 
     for (i = 0; i < data.results.length; i++){
 
@@ -26,10 +25,11 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
         }
     }
 
+
     //html elements creation
     function createElements(data, options){
 
-        var btnOp = [];
+        let btnOp = [];
         
 
         //add chunks from options into a new array optionsArray
@@ -46,7 +46,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
             card.innerHTML = data.results[y].question;
 
-            var dOptions = document.createElement('div')
+            let dOptions = document.createElement('div')
             dOptions.classList.add('choices');
 
             trivia.append(card);                     
@@ -64,6 +64,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
                 dBtn.append(btnOp);
                 dOptions.append(dBtn); 
             }
+            
             alert = document.createElement('p');
             dOptions.append(alert);
 
@@ -72,7 +73,6 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
             //but it could be alert.id = y;
             alert.id = 'i'+y;
         }     
-
     }
 
     function result(idx){
@@ -136,7 +136,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
     }
 
     //empty array to add random numbers
-    var randomNumbers = [];
+    let randomNumbers = [];
 
     //generate 15 random numbers to swap the order of right answers
     randomNumbers.push(Math.floor( Math.random() * 4 ));  
@@ -151,7 +151,7 @@ fetch(`https://opentdb.com/api.php?amount=15&category=18&difficulty=medium&type=
 
     // console.log(randomNumbers)
     
-    var options = incorrectArray;
+    let options = incorrectArray;
 
     for(u = 0; u < randomNumbers.length; u++){
         //swap answers
